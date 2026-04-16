@@ -24,6 +24,7 @@ app.set('view engine','ejs');
 
 
 app.use ('/',require('./server/routes/routePages'));
+app.use ('/auth',require('./server/routes/authRoutes'));
 //app.use('/api',require('./server/routes/api_router'));
 
 
