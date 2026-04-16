@@ -1,18 +1,17 @@
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
-//const connectDB = require('./server/config/db');
+const connectDB = require('./server/config/db');
+require ('dotenv').config();;
 
-const dotenv = require ('dotenv');
 
-dotenv.config();
 
 
 
 
 const app = express();
 const port = 8000;
-//connectDB();
+connectDB();
 
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
