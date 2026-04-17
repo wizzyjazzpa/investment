@@ -2,6 +2,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./server/config/db');
+const cors = require('cors')
 require ('dotenv').config();;
 
 
@@ -13,6 +14,7 @@ const app = express();
 const port = 8000;
 connectDB();
 
+app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -23,8 +25,7 @@ app.set('view engine','ejs');
 
 
 app.use ('/',require('./server/routes/routePages'));
-app.use ('/auth',require('./server/routes/authRoutes'));
-//app.use('/api',require('./server/routes/api_router'));
+app.use('/api',require('./server/routes/api_routes'));
 
 
 /*app.use((req,res,next)=>{
